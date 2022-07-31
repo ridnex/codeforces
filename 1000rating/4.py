@@ -10,4 +10,3 @@ if "b" in str:
     print("YES")
 else:
     print("NO")
-print(arr.reverse())
