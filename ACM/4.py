@@ -25,12 +25,7 @@ for i in range(n):
         cnt2+=new_list[i]
     for i in range(2*m, 3*m):
         cnt3+=new_list[i]
-    
-
-
-
-
-        
+       
     output.append([cnt1, cnt2, cnt3])
 
 for i in range(n):
