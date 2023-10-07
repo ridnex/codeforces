@@ -1,58 +1,44 @@
 #include <bits/stdc++.h>
 #define ll long long
-#define pb push_back
 using namespace std;
 int main()
 {
-    int tc;
-    cin >> tc;
-    while (tc--)
-    {
-        ll n, m, k;
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
         cin >> n;
-        vector<ll> arr(n);
-        for (int i = 0; i < n; i++)
-        {
-            cin >> arr[i];
-        }
- 
-        vector<long long> odd;
-        vector<long long> even;
-        vector<long long> arr1;
-        bool b = true;
-        for (int i = 0; i < n; i++)
-        {
-            if (arr[i] & b)
-            {
-                odd.pb(arr[i]);
-            }
-            else
-            {
-                even.pb(arr[i]);
+        vector<vector<string> >arr(3);
+        map<string, int> mp;
+        for(int i=0; i<3; i++){
+            for(int j=0; j<n; j++){
+                string k;
+                cin >> k;
+                if(mp[k]){
+                    mp[k]+=1;
+                }
+                else{
+                    mp[k]=1;
+                }
+                arr[i].push_back(k);
             }
         }
-        sort(even.begin(), even.end());
-        sort(odd.begin(), odd.end());
-        ll odd1 = 0, even1 = 0;
-        for (int i = 0; i < n; i++)
-        {
-            if (arr[i] & b)
-            {
-                arr1.pb(odd[odd1]);
-                ++odd1;
+        for(int i=0; i<3; i++){
+            int cnt = 0;
+            for(int j=0; j<n; j++){
+                if(mp[arr[i][j]]==2){
+                    cnt++;
+                }
+                else if(mp[arr[i][j]]==1){
+                    cnt+=3;
+                }
             }
-            else
-            {
- 
-                arr1.pb(even[even1]);
-                ++even1;
-            }
+            cout << cnt << " ";
         }
-        int a = is_sorted(arr1.begin(), arr1.end());
-        if (a)
-            cout
-                << "YES\n";
-        else
-            cout << "NO\n";
+        cout<<endl;
+
+
+        
     }
+   
 }
